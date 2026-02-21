@@ -1,0 +1,168 @@
+---
+configure_dotfiles: true
+configure_nvm: true
+nvm_node_version: "22"
+configure_terminal: false
+configure_osx: true
+configure_agents: true
+
+# Set to 'true' to configure the Dock via dockutil.
+configure_dock: true
+dockitems_remove:
+  - Apps
+  - Games
+  - Messages
+  - Mail
+  - Maps
+  - Phone
+  - Photos
+  - FaceTime
+  - Contacts
+  - Freeform
+  - TV
+  - Music
+  - "App Store"
+  - "iPhone Mirroring"
+dockitems_persist:
+  - name: Safari
+    path: "/Applications/Safari.app/"
+    pos: 1
+  - name: Calendar
+    path: "/Applications/Calendar.app/"
+    pos: 2
+  - name: Reminders
+    path: "/Applications/Reminders.app/"
+    pos: 3
+  - name: Notes
+    path: "/Applications/Notes.app/"
+    pos: 4
+  - name: Brave Browser
+    path: "/Applications/Brave Browser.app/"
+    pos: 5
+  - name: Ghostty
+    path: "/Applications/Ghostty.app/"
+    pos: 6
+  - name: Visual Studio Code
+    path: "/Applications/Visual Studio Code.app/"
+    pos: 7
+  - name: System Settings
+    path: "/Applications/System Settings.app/"
+    pos: 8
+
+configure_sudoers: true
+sudoers_custom_config: |
+  # Allow users in admin group to use sudo with no password, so the playbook and
+  %admin ALL=(ALL) NOPASSWD: ALL
+
+dotfiles_repo: https://github.com/skmpf/dotfiles.git
+dotfiles_repo_accept_hostkey: true
+dotfiles_repo_local_destination: ~/.dotfiles
+dotfiles_repo_version: main
+dotfiles_files:
+  - .aliases
+  - .gitconfig
+  - .gitconfig_work
+  - .gitignore
+  - .ohmyposh.toml
+  - .osx
+  - .tmux.conf
+  - .vimrc
+  - .zshrc
+
+agents_repo: "https://github.com/skmpf/agents.git"
+agents_repo_version: "main"
+agents_repo_accept_hostkey: true
+
+homebrew_installed_packages:
+  - ansible
+  - eza
+  - ffmpeg
+  - fzf
+  - gh
+  - mas
+  - mole
+  - nvm
+  - oh-my-posh
+  - pnpm
+  - ripgrep
+  - rtk
+  - stow
+  - tmux
+  - yt-dlp
+  - zoxide
+
+homebrew_taps: []
+
+homebrew_cask_appdir: /Applications
+homebrew_cask_apps:
+  - aldente
+  - anki
+  - bitwarden
+  - brave-browser
+  - expo-orbit
+  - flux
+  - ghostty
+  - jordanbaird-ice
+  - keka
+  - obsidian
+  - orbstack
+  - raycast
+  - rectangle
+  - visual-studio-code
+  - vlc
+  - zerotier-one
+
+# See `geerlingguy.mac.mas` role documentation for usage instructions.
+mas_installed_apps:
+  - { id: 1365531024, name: "1Blocker" }
+  # - { id: 524141863, name: "Jump Desktop" } # on secondary account
+  - { id: 361285480, name: "Keynote" }
+  - { id: 361304891, name: "Numbers" }
+  - { id: 361309726, name: "Pages" }
+  - { id: 1450874784, name: "Transporter" }
+  - { id: 497799835, name: "Xcode" }
+mas_email: ""
+mas_password: ""
+
+osx_script: "~/.osx"
+
+# Install packages from other package managers.
+# Note: You are responsible for making sure the required package managers are
+# installed, eg. through homebrew.
+composer_packages: []
+# - name: drush
+#   state: present # present/absent, default: present
+#   version: "^8.1" # default: N/A
+gem_packages: []
+# - name: bundler
+#   state: present # present/absent/latest, default: present
+#   version: "~> 1.15.1" # default: N/A
+npm_packages: []
+# - name: webpack
+#   state: present # present/absent/latest, default: present
+#   version: "^2.6" # default: N/A
+pip_packages: []
+# - name: mkdocs
+#   state: present # present/absent/latest, default: present
+#   version: "0.16.3" # default: N/A
+
+# Set to 'true' to configure Sublime Text.
+configure_sublime: false
+sublime_base_path: "~/Library/Application Support/Sublime Text"
+sublime_config_path: "Packages/User"
+sublime_package_control:
+  - "DocBlockr"
+  - "Dockerfile Syntax Highlighting"
+  - "FileDiffs"
+  - "GitHub Flavored Markdown Preview"
+  - "Jinja2"
+  - "Package Control"
+  - "Pretty JSON"
+  - "SublimeLinter"
+  - "SublimeLinter-contrib-yamllint"
+  - "Theme - Cobalt2"
+  - "TrailingSpaces"
+  - "WordingStatus"
+
+# Glob pattern to ansible task files to run after all other tasks are finished.
+post_provision_tasks: []

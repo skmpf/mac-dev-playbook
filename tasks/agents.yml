@@ -1,0 +1,30 @@
+---
+# Centralize the pi harness config in the agents repo and deploy it via GNU Stow
+# (mirrors the dotfiles stow pattern). The repo's `pi/` package mirrors ~/.pi:
+#   ~/.agents/pi/agent/<file>  ->  ~/.pi/agent/<file>
+#     (settings.json, models.json, AGENTS.md, extensions/)
+# Skills live in ~/.agents/skills and are read by pi NATIVELY (not stowed).
+# auth.json, sessions/, bin/, and installed packages (git/, npm/) stay in
+# ~/.pi/agent and are never versioned. stow writes relative symlinks, so re-run
+# this task if the repo is ever moved to a new path.
+#
+# Note: pi user packages (settings.json "packages") are not auto-installed by
+# stow; run `pi install npm:...` (or add a task) to restore them on a fresh Mac.
+
+- name: Clone agents repo to ~/.agents.
+  git:
+    repo: "{{ agents_repo }}"
+    dest: "{{ ansible_facts.env.HOME }}/.agents"
+    version: "{{ agents_repo_version }}"
+    update: yes
+    accept_hostkey: "{{ agents_repo_accept_hostkey | default(true) }}"
+
+- name: Ensure ~/.pi exists (stow target).
+  file:
+    path: "{{ ansible_facts.env.HOME }}/.pi"
+    state: directory
+    mode: "0755"
+
+- name: Stow the pi package into ~/.pi.
+  shell: "stow --dir={{ ansible_facts.env.HOME }}/.agents --target={{ ansible_facts.env.HOME }}/.pi pi"
+  changed_when: false

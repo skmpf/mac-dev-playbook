@@ -1,0 +1,13 @@
+---
+- name: Pull dotfiles repo.
+  git:
+    repo: https://github.com/skmpf/dotfiles.git
+    dest: ~/.dotfiles
+    version: main
+    update: yes
+
+- name: Stow dotfiles.
+  shell: stow .
+  args:
+    chdir: ~/.dotfiles
+  changed_when: false

@@ -2,6 +2,8 @@
 configure_dotfiles: true
 configure_terminal: true
 configure_osx: true
+configure_nvm: false
+nvm_node_version: "22"
 
 # Set to 'true' to configure the Dock via dockutil.
 configure_dock: false
@@ -79,8 +81,13 @@ homebrew_cask_apps:
 
 # See `geerlingguy.mac.mas` role documentation for usage instructions.
 mas_installed_apps: []
-mas_email: ""
+mas_email: "{{ lookup('env', 'MAS_EMAIL') }}"
 mas_password: ""
+
+configure_agents: false
+agents_repo: "https://github.com/USERNAME/agents.git"
+agents_repo_version: "main"
+agents_repo_accept_hostkey: true
 
 osx_script: "~/.osx --no-restart"
 
