@@ -36,14 +36,14 @@ dockitems_persist:
   - name: Brave Browser
     path: "/Applications/Brave Browser.app/"
     pos: 4
-  - name: Visual Studio Code
-    path: "/Applications/Visual Studio Code.app/"
+  - name: Herdr
+    path: "/Applications/Herdr.app/"
     pos: 5
   - name: Ghostty
     path: "/Applications/Ghostty.app/"
     pos: 6
-  - name: Hermes # Needs to be installed manually from https://hermes-agent.nousresearch.com/
-    path: "/Applications/Hermes.app/"
+  - name: Visual Studio Code
+    path: "/Applications/Visual Studio Code.app/"
     pos: 7
   - name: System Settings
     path: "/System/Applications/System Settings.app/"
@@ -79,6 +79,7 @@ homebrew_installed_packages:
   - ffmpeg
   - fzf
   - gh
+  - herdr
   - mas
   - mole
   - nvm
@@ -98,10 +99,13 @@ homebrew_cask_apps:
   - anki
   - bitwarden
   - brave-browser
+  - claude
   - expo-orbit
-  - flux
+  - flux-app
+  - gcloud-cli
   - ghostty
   - google-chrome
+  - herdr-app
   - jump-desktop-connect
   - jordanbaird-ice
   - keka

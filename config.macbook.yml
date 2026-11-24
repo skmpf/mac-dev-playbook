@@ -24,30 +24,39 @@ dockitems_remove:
   - "App Store"
   - "iPhone Mirroring"
 dockitems_persist:
+  - name: Anki
+    path: "/Applications/Anki.app/"
+    pos: 1
+  - name: Obsidian
+    path: "/Applications/Obsidian.app/"
+    pos: 2
   - name: Safari
     path: "/Applications/Safari.app/"
-    pos: 1
+    pos: 3
   - name: Calendar
     path: "/Applications/Calendar.app/"
-    pos: 2
+    pos: 4
   - name: Reminders
     path: "/Applications/Reminders.app/"
-    pos: 3
+    pos: 5
   - name: Notes
     path: "/Applications/Notes.app/"
-    pos: 4
+    pos: 6
   - name: Brave Browser
     path: "/Applications/Brave Browser.app/"
-    pos: 5
+    pos: 7
+  - name: Herdr
+    path: "/Applications/Herdr.app/"
+    pos: 8
   - name: Ghostty
     path: "/Applications/Ghostty.app/"
-    pos: 6
+    pos: 9
   - name: Visual Studio Code
     path: "/Applications/Visual Studio Code.app/"
-    pos: 7
+    pos: 10
   - name: System Settings
     path: "/Applications/System Settings.app/"
-    pos: 8
+    pos: 11
 
 configure_sudoers: true
 sudoers_custom_config: |
@@ -79,6 +88,7 @@ homebrew_installed_packages:
   - ffmpeg
   - fzf
   - gh
+  - herdr
   - mas
   - mole
   - nvm
@@ -99,9 +109,13 @@ homebrew_cask_apps:
   - anki
   - bitwarden
   - brave-browser
+  - claude
   - expo-orbit
-  - flux
+  - flux-app
+  - gcloud-cli
   - ghostty
+  - google-chrome
+  - herdr-app
   - jordanbaird-ice
   - keka
   - obsidian
